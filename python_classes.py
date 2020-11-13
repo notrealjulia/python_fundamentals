@@ -1,7 +1,7 @@
 #to call flight class import the file name 
 #to pass any arguments into the methods in the class we need to define __init__ and assign it to self
 #it gets called right after the creation of an object, it doesn't return anything
-#_ is used by convention for attributes that should not be modified 
+#_ is used by convention for attributes that should not be modified, "private variables" 
 #all methods must call on self
 
 class MyClassName:
@@ -35,10 +35,18 @@ class Airplane:
         return self._regitration
     
     def model(self):
-        return. self._model
+        return self._model
     
     #constructs a seating plan for the plane based on the number of rows and seats per row
     def seating_plan(self):
         return (range(1, self._num_rows + 1), #range is half open, that's why add 1
                 "ABCDEFGHJK"[self._num_seats])
+    
+    #classes can be passed into other classes directly
+    #polymorphism - using objects of different types through a uniform interface 
+    #duck typing -  an object's fitness for a particular use is only determined at runtime
+    #different from java
+    #inheritance in Python is primarily used for sharing implementation between classes
+    #abstract classes are not useful to instanciate on their own, but are used to build other classes
+    
     
