@@ -41,6 +41,7 @@ for line in f:
     #sys.stdout.write(line) 
 f.close()
 
+
 #using WITH-blocks
 #can be used with any object that supports the context-manager protocol
 def read_series(filename):
@@ -48,3 +49,21 @@ def read_series(filename):
         return [int(line.strip()) for line in f]
 
 #sugary syntax
+
+
+#closing can also be used when making new classes, it will close the object even if there are runtime errors 
+from contextlib import closing
+
+#original
+def function(parameter):
+    c = ClassObject()
+    c.method_1(parameter)
+    c.method_2()
+    c.method_to_explicitly_close()
+    
+#with closing
+def function(parameter):
+    with closing(ClassObject()) as c:
+        c.method_1(parameter)
+        c.method_2()
+        # remove method to explicitly close
